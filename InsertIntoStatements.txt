@@ -1,0 +1,57 @@
+INSERT INTO Students VALUES
+('35205/2025','Johnette Monmia','johnette@gmail.com','0788000001','Software Engineering','1');
+INSERT INTO Students VALUES
+('35205/2022','Sharell Manley','sharellmanley@gmail.com','0788000002','Computing and Information Science','2');
+INSERT INTO Students VALUES
+('35205/2013','Marvelous Sakor','marvsakor@gmail.com','0788000003','Networking','4');
+INSERT INTO Students VALUES
+('35205/2021','Prisca Tornor','pjtornor@gmail.com','0788000004','Networking','1');
+INSERT INTO Students VALUES
+('31289/2013','Eric Ndayisaba','ericndayisaba@gmail.com','0788000005',' Software Engineering','4');
+
+
+
+INSERT INTO Courses VALUES
+('DPR400210','Database Programming',4,'Computing and Information Science');
+INSERT INTO Courses VALUES
+('CSC300115','Java Programming',3,'Computing and Information Science');
+INSERT INTO Courses VALUES
+('MAT200101','Discrete Mathematics',3,'Mathematics');
+INSERT INTO Courses VALUES
+('FIN300210','Financial Accounting',3,'Business');
+INSERT INTO Courses VALUES 
+('OOP400210','Object Oriented Programmimg Using Java',9,'Computing and Information Science');
+
+INSERT INTO Tutors VALUES
+('31289/2013','Experienced Database tutor',4.90);
+INSERT INTO Tutors VALUES
+('35205/2025','Excellent Java Tutor',4.75);
+INSERT INTO Tutors VALUES
+('35205/2022','Okay OOP Tutor',3.75);
+
+
+INSERT INTO TutoringSessions VALUES
+('S001','35205/2025','35205/2013','DPR400210',DATE '2026-03-20',90,'Completed');
+INSERT INTO TutoringSessions VALUES
+('S002','35205/2022','31289/2013','CSC300115',DATE '2026-05-19',60,'Completed');
+INSERT INTO TutoringSessions VALUES
+('S003','31289/2013','35205/2021','DPR400210',DATE '2026-06-22',120,'Scheduled');
+INSERT INTO TutoringSessions VALUES
+('S004','31289/2013','35205/2021','CSC300115',DATE '2026-06-28',90,'Completed');
+
+
+INSERT INTO Feedback VALUES
+('F001','S001',5,'Excellent explanation');
+INSERT INTO Feedback VALUES
+('F002','S002',4,'Very helpful');
+INSERT INTO Feedback VALUES
+('F003','S003',5,'Clear and interactive session');
+
+
+UPDATE Students
+SET Faculty = 'Software Engineering'
+WHERE Student_id = '31289/2013';
+
+UPDATE Students
+SET Faculty = 'Networking'
+WHERE Student_id = '35205/2021';

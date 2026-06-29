@@ -1,0 +1,106 @@
+--WINDOW FUNCTIONS
+
+
+-- ROW_NUMBER()
+SELECT
+Student_id,
+Rating,
+ROW_NUMBER() OVER (ORDER BY Rating DESC) AS Row_Number
+FROM Tutors;
+
+-- RANK()
+SELECT
+Student_id,
+Rating,
+RANK() OVER (ORDER BY Rating DESC) AS Tutor_Rank
+FROM Tutors;
+
+
+-- DENSE_RANK()
+SELECT
+Student_id,
+Rating,
+DENSE_RANK() OVER (ORDER BY Rating DESC) AS Dense_Rank
+FROM Tutors;
+
+-- PERCENT_RANK()
+SELECT
+Student_id,
+Rating,
+PERCENT_RANK() OVER (ORDER BY Rating DESC) AS Percent_Rank
+FROM Tutors;
+
+
+-- SUM() OVER()
+SELECT
+Session_id,
+Duration_minutes,
+SUM(Duration_minutes)
+OVER()
+AS Total_Minutes
+FROM TutoringSessions;
+
+
+-- AVG() OVER()
+SELECT
+Session_id,
+Duration_minutes,
+AVG(Duration_minutes)
+OVER()
+AS Average_Duration
+FROM TutoringSessions;
+
+-- MIN() OVER()
+SELECT
+Session_id,
+Duration_minutes,
+MIN(Duration_minutes)
+OVER()
+AS Shortest_Session
+FROM TutoringSessions;
+
+
+-- MAX() OVER()
+SELECT
+Session_id,
+Duration_minutes,
+MAX(Duration_minutes)
+OVER()
+AS Longest_Session
+FROM TutoringSessions;
+
+-- LAG()
+SELECT
+Session_id,
+Session_date,
+LAG(Session_date)
+OVER(ORDER BY Session_date)
+AS Previous_Session
+FROM TutoringSessions;
+
+-- LEAD()
+SELECT
+Session_id,
+Session_date,
+LEAD(Session_date)
+OVER(ORDER BY Session_date)
+AS Next_Session
+FROM TutoringSessions;
+
+-- NTILE()
+SELECT
+Student_id,
+Rating,
+NTILE(4)
+OVER(ORDER BY Rating DESC)
+AS Quartile
+FROM Tutors;
+
+-- CUME_DIST()
+SELECT
+Student_id,
+Rating,
+CUME_DIST()
+OVER(ORDER BY Rating DESC)
+AS Cumulative_Distribution 
+FROM Tutors;

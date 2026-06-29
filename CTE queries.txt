@@ -1,0 +1,49 @@
+-- Simple CTE
+WITH ComputingStudents AS (
+SELECT
+Student_id,
+FullName,
+Faculty
+FROM Students WHERE Faculty='Software Engineering')
+SELECT * FROM ComputingStudents;
+
+
+-- Multiple CTE Example
+WITH HighRatedTutors AS (
+SELECT
+Student_id,
+Rating FROM Tutors WHERE Rating>4.5),
+TutorDetails AS (
+SELECT
+Student_id,
+FullName FROM Students)
+SELECT TD.FullName, HRT.Rating FROM TutorDetails TD 
+JOIN HighRatedTutors HRT ON TD.Student_id=HRT.Student_id;
+
+
+-- Recursive CTE
+WITH Numbers(n) AS (
+SELECT 1 FROM dual
+UNION ALL
+SELECT n+1 FROM Numbers WHERE n<5)
+SELECT * FROM Numbers;
+
+
+-- CTE with Aggregation
+WITH AverageRatings AS (
+SELECT
+AVG(Rating) AS Average_Rating FROM Tutors)
+SELECT * FROM AverageRatings;
+
+
+-- CTE with JOIN
+WITH StudentSessions AS (
+SELECT
+S.FullName,C.CourseName,TS.Status
+FROM Students S
+JOIN TutoringSessions TS
+ON S.Student_id=TS.Student_id
+JOIN Courses C
+ON TS.Course_id=C.Course_id)
+SELECT *
+FROM StudentSessions;
